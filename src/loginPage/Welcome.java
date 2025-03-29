@@ -11,9 +11,7 @@ public class Welcome {
 
     public static void displayLogin(){
         System.out.println("|===============================================|");
-        System.out.println("|                                               |");
         System.out.println("|         SILAHKAN LENGKAPI BAGIAN INI!         |");
-        System.out.println("|                                               |");
         System.out.println("|===============================================|");
     }
 }
