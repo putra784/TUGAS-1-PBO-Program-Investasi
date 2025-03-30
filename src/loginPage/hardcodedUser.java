@@ -11,9 +11,9 @@ public class hardcodedUser {
         userData.put("Eri", new User ("Eriwidura", "eri333", Role.CUSTOMER));
     }
 
-    public static User findUser(String findUser) {
+    public static User findUser(String usersname) {
         for (User user : userData.values()) {
-            if (user.getUsername().equals(findUser)) {
+            if (user.getUsername().equals(usersname)) {
                 return user;
             }
         }
