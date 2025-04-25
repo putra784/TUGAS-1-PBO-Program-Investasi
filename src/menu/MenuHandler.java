@@ -33,27 +33,29 @@ public class MenuHandler {
         System.out.println("|5. Portofolio Customer             |");
         System.out.println("|6. Logout                          |");
         System.out.println("|===================================|");
-        System.out.println("Pilih menu yang anda inginkan: ");
+        System.out.print("Pilih menu yang anda inginkan: ");
         int chooseMenu = scanner.nextInt();
         findCustomerOption(chooseMenu);
     }
 
     private static void findCustomerOption (int chooseMenu){
         switch (chooseMenu) {
-            case 1 : BuySaham.chooseSaham();
-            case 5 : PortofolioLists.displayPortofolio();
+            case 1 -> BeliSaham.pilihSaham();
+            case 2 -> JualSaham.jualSaham();
+            case 3 -> BeliSbn.beliSbn();
+            case 5 -> PortofolioLists.displayPortofolio();
         }
     }
 
     private static void findAdminOption (int chooseMenu){
         switch (chooseMenu) {
-            case 1 : SahamAdminMenu.displaySahamAdminMenu();
-            case 2 : SbnAdminMenu.displaySbnAdminMenu();
-            case 3 : {
+            case 1 -> SahamAdminMenu.displaySahamAdminMenu();
+            case 2 -> SbnAdminMenu.displaySbnAdminMenu();
+            case 3 -> {
                 System.out.print("Anda berhasil logout");
                 System.exit(0);
             }
-            default : {
+            default -> {
                 System.out.println("Masukkan pilihan yang valid");
                 displayAdminMenu();
             }
