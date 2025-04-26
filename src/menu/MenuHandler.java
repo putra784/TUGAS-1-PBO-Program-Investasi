@@ -42,8 +42,17 @@ public class MenuHandler {
         switch (chooseMenu) {
             case 1 -> BeliSaham.pilihSaham();
             case 2 -> JualSaham.jualSaham();
-            case 3 -> BeliSbn.beliSbn();
-            case 5 -> PortofolioLists.displayPortofolio();
+            case 3 -> BeliSbn.prosesPembelian();
+            case 4 -> SimulasiSbn.simulasiSbn();
+            case 5 -> PortofolioLists.displayPortofolioFull();
+            case 6 -> {
+                System.out.println("Anda berhasil logout");
+                System.exit(0);
+            }
+            default -> {
+                System.out.println("Masukkan pilihan yang valid!");
+                displayCustomerMenu();
+            }
         }
     }
 
@@ -56,7 +65,7 @@ public class MenuHandler {
                 System.exit(0);
             }
             default -> {
-                System.out.println("Masukkan pilihan yang valid");
+                System.out.println("Masukkan pilihan yang valid!");
                 displayAdminMenu();
             }
         }
