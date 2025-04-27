@@ -2,6 +2,7 @@ package menu.sahamLists;
 
 import java.util.ArrayList;
 
+
 public class SahamLists {
     private static ArrayList<Saham> sahamList = new ArrayList<>();
 

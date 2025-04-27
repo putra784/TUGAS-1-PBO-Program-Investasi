@@ -1,5 +1,6 @@
 package menu.sahamLists;
 
+
 public class Saham {
     private String code;
     private String companyName;
