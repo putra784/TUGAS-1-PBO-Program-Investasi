@@ -1,15 +1,13 @@
 package menu;
 
-import java.util.Scanner;
+import utility.InputUser;
 import menu.admin.*;
 import menu.customer.*;
 import menu.customer.portofolio.PortofolioLists;
 
 public class MenuHandler {
 
-    static final Scanner scanner = new Scanner(System.in);
-
-    public static void displayAdminMenu(){
+    public static void displayAdminMenu() {
         System.out.println("|==============================|");
         System.out.println("|          MENU ADMIN          |");
         System.out.println("|==============================|");
@@ -17,12 +15,12 @@ public class MenuHandler {
         System.out.println("|2. SBN                        |");
         System.out.println("|3. Logout                     |");
         System.out.println("|==============================|");
-        System.out.print("Pilih menu yang anda inginkan: ");
-        int chooseMenu = scanner.nextInt();
+
+        int chooseMenu = InputUser.nextInt("Pilih menu yang anda inginkan: ");
         findAdminOption(chooseMenu);
     }
 
-    public static void displayCustomerMenu(){
+    public static void displayCustomerMenu() {
         System.out.println("|===================================|");
         System.out.println("|           MENU CUSTOMER           |");
         System.out.println("|===================================|");
@@ -33,12 +31,12 @@ public class MenuHandler {
         System.out.println("|5. Portofolio Customer             |");
         System.out.println("|6. Logout                          |");
         System.out.println("|===================================|");
-        System.out.print("Pilih menu yang anda inginkan: ");
-        int chooseMenu = scanner.nextInt();
+
+        int chooseMenu = InputUser.nextInt("Pilih menu yang anda inginkan: ");
         findCustomerOption(chooseMenu);
     }
 
-    private static void findCustomerOption (int chooseMenu){
+    private static void findCustomerOption(int chooseMenu) {
         switch (chooseMenu) {
             case 1 -> BeliSaham.pilihSaham();
             case 2 -> JualSaham.jualSaham();
@@ -56,12 +54,12 @@ public class MenuHandler {
         }
     }
 
-    private static void findAdminOption (int chooseMenu){
+    private static void findAdminOption(int chooseMenu) {
         switch (chooseMenu) {
             case 1 -> SahamAdminMenu.displaySahamAdminMenu();
             case 2 -> SbnAdminMenu.displaySbnAdminMenu();
             case 3 -> {
-                System.out.print("Anda berhasil logout");
+                System.out.println("Anda berhasil logout");
                 System.exit(0);
             }
             default -> {
