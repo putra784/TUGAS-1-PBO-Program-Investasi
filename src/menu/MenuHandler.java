@@ -7,6 +7,7 @@ import menu.customer.portofolio.PortofolioLists;
 
 public class MenuHandler {
 
+    // Method untuk menampilkan pilihan admin
     public static void displayAdminMenu() {
         System.out.println("|==============================|");
         System.out.println("|          MENU ADMIN          |");
@@ -17,9 +18,10 @@ public class MenuHandler {
         System.out.println("|==============================|");
 
         int chooseMenu = InputUser.nextInt("Pilih menu yang anda inginkan: ");
-        findAdminOption(chooseMenu);
+        pilihanAdmin(chooseMenu);
     }
 
+    // Method untuk menampilkan pilihan customer
     public static void displayCustomerMenu() {
         System.out.println("|===================================|");
         System.out.println("|           MENU CUSTOMER           |");
@@ -33,10 +35,11 @@ public class MenuHandler {
         System.out.println("|===================================|");
 
         int chooseMenu = InputUser.nextInt("Pilih menu yang anda inginkan: ");
-        findCustomerOption(chooseMenu);
+        pilihanCustomer(chooseMenu);
     }
 
-    private static void findCustomerOption(int chooseMenu) {
+    // Method untuk mencari tahu pilihan customer
+    private static void pilihanCustomer(int chooseMenu) {
         switch (chooseMenu) {
             case 1 -> BeliSaham.pilihSaham();
             case 2 -> JualSaham.jualSaham();
@@ -54,7 +57,8 @@ public class MenuHandler {
         }
     }
 
-    private static void findAdminOption(int chooseMenu) {
+    // Method untuk mencari tahu pilihan admin
+    private static void pilihanAdmin(int chooseMenu) {
         switch (chooseMenu) {
             case 1 -> SahamAdminMenu.displaySahamAdminMenu();
             case 2 -> SbnAdminMenu.displaySbnAdminMenu();
