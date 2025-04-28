@@ -1,35 +1,35 @@
 package menu.sahamLists;
 
-
+// Class untuk menyimpan data saham
 public class Saham {
-    private String code;
-    private String companyName;
-    private double price;
+    private final String kode;
+    private final String namaPerusahaan;
+    private double harga;
 
-    public Saham(String code, String companyName, double price) {
-        this.code = code;
-        this.companyName = companyName;
-        this.price = price;
+    public Saham(String kode, String namaPerusahaan, double harga) {
+        this.kode = kode;
+        this.namaPerusahaan = namaPerusahaan;
+        this.harga = harga;
     }
 
     @Override
     public String toString() {
-        return String.format("Kode: %s - %s || harga: Rp.%.2f", code, companyName, price);
+        return String.format("Kode: %s - %s || harga: Rp.%.2f", kode, namaPerusahaan, harga);
     }
 
-    public String getCode(){
-        return code;
+    public String getKode(){
+        return kode;
     }
 
-    public String getCompanyName(){
-        return companyName;
+    public String getNamaPerusahaan(){
+        return namaPerusahaan;
     }
 
-    public double getPrice() {
-        return price;
+    public double getHarga() {
+        return harga;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setHarga(double harga) {
+        this.harga = harga;
     }
 }
