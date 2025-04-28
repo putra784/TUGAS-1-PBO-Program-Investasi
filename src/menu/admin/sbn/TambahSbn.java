@@ -9,8 +9,6 @@ public class TambahSbn {
 
     public static void tambahSbn() {
         while (true) {
-            System.out.println("=== Tambah SBN Baru ===");
-
             String kodeSbn = inputKodeSbn();
             String jenisSbn = inputJenisSbn();
             double hargaPerUnit = inputHargaPerUnit();
@@ -21,6 +19,7 @@ public class TambahSbn {
             SbnLists.getDaftarSBN().add(sbnBaru);
 
             System.out.println("SBN baru berhasil ditambahkan!\n");
+            SbnLists.displayDaftarSBN();
 
             if (!validasiMenu()) {
                 return;
