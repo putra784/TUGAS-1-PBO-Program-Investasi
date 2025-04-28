@@ -60,7 +60,7 @@ public class BeliSaham {
     // mencari saham berdasarkan kode
     private static Saham cariSahamByKode(String kode) {
         for (Saham saham : daftarSaham) {
-            if (saham.getCode().equalsIgnoreCase(kode)) {
+            if (saham.getKode().equalsIgnoreCase(kode)) {
                 return saham;
             }
         }
@@ -70,8 +70,8 @@ public class BeliSaham {
     // menambahkan saham yang dibeli ke portofolio
     private static void tambahKePortofolio(Saham saham, int jumlahLembar) {
         PortofolioSahamCustomer portofolio = new PortofolioSahamCustomer(
-                saham.getCode(),
-                saham.getCompanyName(),
+                saham.getKode(),
+                saham.getNamaPerusahaan(),
                 jumlahLembar,
                 saham.getHarga()
         );
