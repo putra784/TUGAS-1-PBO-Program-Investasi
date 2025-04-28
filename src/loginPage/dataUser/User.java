@@ -1,5 +1,6 @@
-package loginPage;
+package loginPage.dataUser;
 
+// Class untuk menyimpan data user
 public class User {
 
     private final String username;
