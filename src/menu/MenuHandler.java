@@ -41,16 +41,16 @@ public class MenuHandler {
     // Method untuk mencari tahu pilihan customer
     private static void pilihanCustomer(int chooseMenu) {
         switch (chooseMenu) {
-            case 1 -> BeliSaham.pilihSaham();
-            case 2 -> JualSaham.jualSaham();
-            case 3 -> BeliSbn.prosesPembelian();
-            case 4 -> SimulasiSbn.simulasiSbn();
-            case 5 -> PortofolioLists.displayPortofolioFull();
-            case 6 -> {
+            case 1 : BeliSaham.pilihSaham();
+            case 2 : JualSaham.jualSaham();
+            case 3 : BeliSbn.prosesPembelian();
+            case 4 : SimulasiSbn.simulasiSbn();
+            case 5 : PortofolioLists.displayPortofolioFull();
+            case 6 : {
                 System.out.println("Anda berhasil logout");
                 System.exit(0);
             }
-            default -> {
+            default : {
                 System.out.println("Masukkan pilihan yang valid!");
                 displayCustomerMenu();
             }
@@ -60,13 +60,13 @@ public class MenuHandler {
     // Method untuk mencari tahu pilihan admin
     private static void pilihanAdmin(int chooseMenu) {
         switch (chooseMenu) {
-            case 1 -> SahamAdminMenu.displaySahamAdminMenu();
-            case 2 -> SbnAdminMenu.displaySbnAdminMenu();
-            case 3 -> {
+            case 1 : SahamAdminMenu.displaySahamAdminMenu();
+            case 2 : SbnAdminMenu.displaySbnAdminMenu();
+            case 3 : {
                 System.out.println("Anda berhasil logout");
                 System.exit(0);
             }
-            default -> {
+            default : {
                 System.out.println("Masukkan pilihan yang valid!");
                 displayAdminMenu();
             }
