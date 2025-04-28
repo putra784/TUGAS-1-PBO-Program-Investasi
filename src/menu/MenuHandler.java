@@ -9,13 +9,13 @@ public class MenuHandler {
 
     // Method untuk menampilkan pilihan admin
     public static void displayAdminMenu() {
-        System.out.println("|==============================|");
-        System.out.println("|          MENU ADMIN          |");
-        System.out.println("|==============================|");
-        System.out.println("|1. Saham                      |");
-        System.out.println("|2. SBN                        |");
-        System.out.println("|3. Logout                     |");
-        System.out.println("|==============================|");
+        System.out.println("==================================");
+        System.out.println("||          MENU ADMIN          ||");
+        System.out.println("----------------------------------");
+        System.out.println("||  1. Saham                    ||");
+        System.out.println("||  2. SBN                      ||");
+        System.out.println("||  3. Logout                   ||");
+        System.out.println("==================================");
 
         int chooseMenu = InputUser.nextInt("Pilih menu yang anda inginkan: ");
         pilihanAdmin(chooseMenu);
@@ -23,16 +23,16 @@ public class MenuHandler {
 
     // Method untuk menampilkan pilihan customer
     public static void displayCustomerMenu() {
-        System.out.println("|===================================|");
-        System.out.println("|           MENU CUSTOMER           |");
-        System.out.println("|===================================|");
-        System.out.println("|1. Beli Saham                      |");
-        System.out.println("|2. Jual Saham                      |");
-        System.out.println("|3. Beli SBN                        |");
-        System.out.println("|4. Simulasi SBN                    |");
-        System.out.println("|5. Portofolio Customer             |");
-        System.out.println("|6. Logout                          |");
-        System.out.println("|===================================|");
+        System.out.println("======================================");
+        System.out.println("||           MENU CUSTOMER          ||");
+        System.out.println("--------------------------------------");
+        System.out.println("||  1. Beli Saham                   ||");
+        System.out.println("||  2. Jual Saham                   ||");
+        System.out.println("||  3. Beli SBN                     ||");
+        System.out.println("||  4. Simulasi SBN                 ||");
+        System.out.println("||  5. Portofolio Customer          ||");
+        System.out.println("||  6. Logout                       ||");
+        System.out.println("======================================");
 
         int chooseMenu = InputUser.nextInt("Pilih menu yang anda inginkan: ");
         pilihanCustomer(chooseMenu);
