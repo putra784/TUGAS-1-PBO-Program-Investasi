@@ -11,13 +11,14 @@ import java.util.ArrayList;
 
 public class BeliSbn {
 
+    // Method utama untuk proses pembelian SBN
     public static void prosesPembelian() {
         while (true) {
-            tampilkanDaftarSbn();
+            displayDaftarSbn();
             SBN sbnTerpilih = inputSbn();
-            int jumlahUnit = inputJumlahUnit();
+            double nominalInvestasi = inputNominalInvestasi();
 
-            simpanKePortofolio(sbnTerpilih, jumlahUnit);
+            simpanKePortofolio(sbnTerpilih, nominalInvestasi);
 
             if (!lanjutBeli()) {
                 break;
@@ -25,14 +26,17 @@ public class BeliSbn {
         }
     }
 
-    private static void tampilkanDaftarSbn() {
-        System.out.println("=== Daftar SBN yang Tersedia ===");
+    // Menampilkan daftar SBN
+    private static void displayDaftarSbn() {
+        System.out.println("Daftar SBN yang Tersedia:");
         SbnLists.displayDaftarSBN();
     }
 
+    // Input SBN yang diinginkan pengguna dan pengecekan
     private static SBN inputSbn() {
         ArrayList<SBN> daftarSbn = SbnLists.getDaftarSBN();
         SBN sbnTerpilih = null;
+
         while (sbnTerpilih == null) {
             String kodeSbn = InputUser.nextLine("Masukkan kode SBN yang ingin dibeli: ");
 
@@ -50,33 +54,57 @@ public class BeliSbn {
         return sbnTerpilih;
     }
 
-    private static int inputJumlahUnit() {
-        int jumlahUnit = 0;
+    // Input nominal investasi yang diinginkan pengguna
+    private static double inputNominalInvestasi() {
+        double nominalInvestasi;
+
         while (true) {
-            String input = InputUser.nextLine("Masukkan jumlah unit yang ingin dibeli: ");
+            String input = InputUser.nextLine("Masukkan nominal investasi yang ingin dibeli (minimal Rp1.000.000): ");
             try {
-                jumlahUnit = Integer.parseInt(input);
-                if (jumlahUnit > 0) {
+                nominalInvestasi = Double.parseDouble(input);
+                if (nominalInvestasi >= 1000000) {
                     break;
                 } else {
-                    System.out.println("Jumlah unit harus lebih dari 0.");
+                    System.out.println("Nominal investasi minimal Rp1.000.000.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Masukkan angka yang valid.");
             }
         }
-        return jumlahUnit;
+        return nominalInvestasi;
     }
 
-    private static void simpanKePortofolio(SBN sbn, int jumlahUnit) {
-        PortofolioSbnCustomer portofolio = new PortofolioSbnCustomer(sbn, jumlahUnit);
-        PortofolioLists.addPortofolioSbn(portofolio);
-        System.out.println("Pembelian berhasil ditambahkan ke portofolio Anda!\n");
+    // Proses penyimpanan kedalam portofolio
+    private static void simpanKePortofolio(SBN sbn, double nominalInvestasi) {
+        // Cari apakah SBN sudah ada dalam portofolio
+        PortofolioSbnCustomer existingPortofolio = cariPortofolioSbn(sbn.getKodeSbn());
+
+        if (existingPortofolio != null) {
+            // Jika SBN sudah ada, tambahkan unit baru ke portofolio yang sudah ada
+            existingPortofolio.tambahUnit(nominalInvestasi, sbn);
+            System.out.println("Jumlah unit SBN yang sudah ada diperbarui!\n");
+        } else {
+            // Jika SBN belum ada, buat portofolio baru dan tambahkan ke daftar
+            PortofolioSbnCustomer newPortofolio = new PortofolioSbnCustomer(sbn, nominalInvestasi);
+            PortofolioLists.addPortofolioSbn(newPortofolio);
+            System.out.println("Pembelian SBN baru berhasil ditambahkan ke portofolio Anda!\n");
+        }
     }
 
+    // Mencari portofolio SBN berdasarkan kode SBN
+    private static PortofolioSbnCustomer cariPortofolioSbn(String kodeSbn) {
+        for (PortofolioSbnCustomer portofolioSbn : PortofolioLists.portofolioSbnList) {
+            if (portofolioSbn.getSbn().getKodeSbn().equals(kodeSbn)) {
+                return portofolioSbn;
+            }
+        }
+        return null;
+    }
+
+    // Validasi apakah lanjut beli atau tidak
     private static boolean lanjutBeli() {
         while (true) {
-            System.out.println("\n1. Lanjutkan membeli SBN");
+            System.out.println("1. Lanjutkan membeli SBN");
             System.out.println("2. Kembali ke menu utama");
             String pilihan = InputUser.nextLine("Pilih: ");
 
