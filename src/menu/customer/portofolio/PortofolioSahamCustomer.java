@@ -3,6 +3,7 @@ package menu.customer.portofolio;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+// Class untuk menyimpan portofolio saham customer
 public class PortofolioSahamCustomer {
     private static int count = 1;
     private final String kodeSahamCustomer;
@@ -23,9 +24,15 @@ public class PortofolioSahamCustomer {
         double total = jumlahLembar * hargaPerLembar;
         NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
         String totalFormatted = formatter.format(total);
-        System.out.printf("%d. %s - %s || jumlah lembar: %d (%s) || avg: %.2f%n",
-                nomor, kodeSahamCustomer, namaSahamCustomer, jumlahLembar, totalFormatted, hargaPerLembar);
+
+        System.out.println("Kode Saham: " + kodeSahamCustomer);
+        System.out.println("Nama Saham: " + namaSahamCustomer);
+        System.out.println("Jumlah Lembar: " + jumlahLembar);
+        System.out.println("Total Investasi: " + totalFormatted);
+        System.out.println("Harga per Lembar: Rp" + hargaPerLembar);
+        System.out.println("------------------------------------");
     }
+
 
     public int getJumlahLembar() {
         return jumlahLembar;
