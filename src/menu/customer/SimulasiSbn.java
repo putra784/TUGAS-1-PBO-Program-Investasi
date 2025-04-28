@@ -26,7 +26,7 @@ public class SimulasiSbn {
 
     // Menampilkan daftar SBN yang tersedia
     private static void displayDaftarSbn() {
-        System.out.println("=== Daftar SBN untuk Simulasi ===");
+        System.out.println("Daftar SBN untuk Simulasi");
         SbnLists.displayDaftarSBN();
     }
 
@@ -57,19 +57,26 @@ public class SimulasiSbn {
         double nominal;
 
         while (true) {
-            String input = InputUser.nextLine("Masukkan nominal investasi (Rp): ");
+            String input = InputUser.nextLine("Masukkan nominal investasi (minimal Rp1.000.000): ");
             try {
                 nominal = Double.parseDouble(input);
-                if (nominal > 0) {
+                if (validasiNominal(nominal)) {
                     break;
-                } else {
-                    System.out.println("Nominal harus lebih dari 0.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Masukkan angka yang valid.");
             }
         }
         return nominal;
+    }
+
+    // Method khusus untuk validasi nominal
+    private static boolean validasiNominal(double nominal) {
+        if (nominal < 1_000_000) {
+            System.out.println("Nominal investasi harus minimal Rp1.000.000. Silakan coba lagi.");
+            return false;
+        }
+        return true;
     }
 
     // Hitung dan tampilkan hasil simulasi
