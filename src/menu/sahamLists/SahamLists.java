@@ -2,9 +2,10 @@ package menu.sahamLists;
 
 import java.util.ArrayList;
 
-
+// Class untuk menyimpan daftar saham yang ada saat ini
 public class SahamLists {
-    private static ArrayList<Saham> sahamList = new ArrayList<>();
+
+    private static final ArrayList<Saham> sahamList = new ArrayList<>();
 
     static {
         sahamList.add(new Saham("BBCA", "Bank Central Asia Tbk.", 1900));
