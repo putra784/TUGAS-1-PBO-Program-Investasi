@@ -1,10 +1,14 @@
 package loginPage;
 
+import loginPage.dataUser.Role;
+import loginPage.dataUser.User;
+import loginPage.dataUser.hardcodedUser;
 import menu.MenuHandler;
-import utility.InputUser; // <- Import utility InputUser
+import utility.InputUser;
 
 public class AutentikasiUser {
 
+    // method pemanggilan untuk handle input user
     public static void autentikasiUser() {
         String roleInput = InputUser.nextLine("Masukkan role / peran anda (hanya admin atau customer): ").toUpperCase();
 
@@ -22,8 +26,9 @@ public class AutentikasiUser {
         cekUser(role, username, password, roleInput);
     }
 
+    // method untuk pengecekan user
     private static void cekUser(Role role, String username, String password, String roleInput) {
-        User user = hardcodedUser.findUser(username);
+        User user = hardcodedUser.temukanUser(username);
 
         if (user == null) {
             System.out.println("Username tidak ditemukan!");
