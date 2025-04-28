@@ -12,11 +12,6 @@ public class Saham {
         this.harga = harga;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Kode: %s - %s || harga: Rp.%.2f", kode, namaPerusahaan, harga);
-    }
-
     public String getKode(){
         return kode;
     }
