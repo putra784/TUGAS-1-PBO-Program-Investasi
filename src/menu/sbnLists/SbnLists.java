@@ -2,6 +2,7 @@ package menu.sbnLists;
 
 import java.util.*;
 
+// class untuk menyimpan daftar SBN yang ada
 public class SbnLists {
     private static final ArrayList<SBN> daftarSBN = new ArrayList<>();
 
@@ -17,9 +18,26 @@ public class SbnLists {
     }
 
     public static void displayDaftarSBN() {
+        System.out.println("=========================================================================================================");
+        System.out.println("||                                           Daftar SBN                                                ||");
+        System.out.println("=========================================================================================================");
+        System.out.printf("|| %-3s || %-6s || %-45s || %-13s || %-7s || %-5s ||\n", "No", "Kode", "Nama SBN", "Harga", "Kupon", "Tenor");
+        System.out.println("=========================================================================================================");
+
         int index = 1;
         for (SBN sbn : daftarSBN) {
-            System.out.println(index++ + ". " + sbn);
+            System.out.printf(
+                    "|| %-3d || %-6s || %-45s || Rp.%-10.0f || %-5.2f%% || %-3d th ||\n",
+                    index++,
+                    sbn.getKodeSbn(),
+                    sbn.getJenisSbn(),
+                    sbn.getHargaPerUnit(),
+                    sbn.getBunga(),
+                    sbn.getTenor()
+            );
         }
+
+        System.out.println("=========================================================================================================");
     }
+
 }
