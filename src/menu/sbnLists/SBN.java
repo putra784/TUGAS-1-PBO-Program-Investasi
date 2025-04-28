@@ -1,5 +1,6 @@
 package menu.sbnLists;
 
+// class untuk menyimpan data SBN
 public class SBN {
    private final String kodeSbn;
    private final String jenisSbn;
@@ -14,16 +15,6 @@ public class SBN {
        this.bunga = bunga;
        this.tenor = tenor;
    }
-
-    @Override
-    public String toString() {
-        return "Kode: " + kodeSbn + "\n" +
-                "Jenis: " + jenisSbn + "\n" +
-                "Harga per Unit: Rp" + hargaPerUnit + "\n" +
-                "Bunga: " + bunga + "% per tahun\n" +
-                "Tenor: " + tenor + " tahun\n" +
-                "------------------------------------";
-    }
 
     public String getKodeSbn() {
        return kodeSbn;
@@ -41,4 +32,11 @@ public class SBN {
        return jenisSbn;
     }
 
+    public String getKode() {
+       return kodeSbn;
+    }
+
+    public int getTenor() {
+       return tenor;
+    }
 }
