@@ -201,16 +201,3 @@ Setelah masuk menu simulasi SBN, program akan langsung menampilkan daftar SBN ya
 ![Screenshot 2025-04-29 184813](https://github.com/user-attachments/assets/e128938b-1748-49ba-a5e0-ffe5399d18ae)
 ![Screenshot 2025-04-29 184833](https://github.com/user-attachments/assets/53b4030a-c760-4e7d-942c-2a92bbe9880b)
 ![Screenshot 2025-04-29 184852](https://github.com/user-attachments/assets/d4c38ce4-8eb5-448e-9cb1-724446b251b6)
-
-
-halohalohalo
-lalalalala
-astungkara
-bingung
-apa 
-kenapa
-apa lagi ya
-terus apa
-khajdsj
-jjjfejejejgf
-
