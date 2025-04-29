@@ -8,39 +8,50 @@ import utility.InputUser;
 
 public class AutentikasiUser {
 
-    // method pemanggilan untuk handle input user
     public static void autentikasiUser() {
-        String roleInput = InputUser.nextLine("Masukkan role / peran anda (hanya admin atau customer): ").toUpperCase();
-
         Role role;
-        try {
-            role = Role.valueOf(roleInput);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Peran tidak ditemukan!");
-            return;
+        String roleInput;
+
+        // LOOP untuk input role sampai valid
+        while (true) {
+            roleInput = InputUser.nextLine("Masukkan role / peran anda (hanya admin atau customer): ").toUpperCase();
+            try {
+                role = Role.valueOf(roleInput);
+                break; // keluar loop jika role valid
+            } catch (IllegalArgumentException e) {
+                System.out.println("Peran tidak ditemukan! Silakan coba lagi.\n");
+            }
         }
 
-        String username = InputUser.nextLine("Masukkan username anda: ");
-        String password = InputUser.nextLine("Masukkan password anda: ");
+        // LOOP untuk input username sampai valid
+        User user;
+        while (true) {
+            String username = InputUser.nextLine("Masukkan username anda: ");
+            user = hardcodedUser.temukanUser(username);
 
-        cekUser(role, username, password, roleInput);
-    }
-
-    // method untuk pengecekan user
-    private static void cekUser(Role role, String username, String password, String roleInput) {
-        User user = hardcodedUser.temukanUser(username);
-
-        if (user == null) {
-            System.out.println("Username tidak ditemukan!");
-        } else if (user.getRole() != role) {
-            System.out.println("Peran tidak sesuai!");
-        } else if (!user.getPassword().equals(password)) {
-            System.out.println("Password salah!");
-        } else {
-            if (roleInput.equals("CUSTOMER")) {
-                MenuHandler.displayCustomerMenu();
+            if (user == null) {
+                System.out.println("Username tidak ditemukan! Silakan coba lagi.\n");
+            } else if (user.getRole() != role) {
+                System.out.println("Peran tidak sesuai dengan akun ini! Silakan coba username lain.\n");
             } else {
-                MenuHandler.displayAdminMenu();
+                break; // username ditemukan dan cocok dengan role
+            }
+        }
+
+        // LOOP untuk input password sampai benar
+        while (true) {
+            String password = InputUser.nextLine("Masukkan password anda: ");
+            if (!user.getPassword().equals(password)) {
+                System.out.println("Password salah! Silakan coba lagi.\n");
+            } else {
+                // login berhasil
+                System.out.println("Login berhasil sebagai " + roleInput + "!");
+                if (roleInput.equals("CUSTOMER")) {
+                    MenuHandler.displayCustomerMenu();
+                } else {
+                    MenuHandler.displayAdminMenu();
+                }
+                break;
             }
         }
     }
