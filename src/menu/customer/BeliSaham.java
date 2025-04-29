@@ -17,30 +17,17 @@ public class BeliSaham {
         boolean lanjut = true;
         while (lanjut) {
             tampilkanDaftarSaham();
-            Saham sahamTerpilih = inputKodeSaham(); // pengecekan kode langsung di sini
+            String kodeSaham = InputUser.nextLine("Masukkan kode saham yang ingin Anda beli: ").toUpperCase();
             int jumlahLembar = inputJumlahLembar();
-            tambahKePortofolio(sahamTerpilih, jumlahLembar);
+            prosesPembelian(kodeSaham, jumlahLembar);
             lanjut = tanyaPilihanLanjutan();
         }
     }
 
     // menampilkan daftar saham
     private static void tampilkanDaftarSaham() {
-        System.out.println("Daftar Saham");
+        System.out.println("=== Daftar Saham ===");
         SahamLists.displaySaham();
-    }
-
-    // input kode saham yang valid
-    private static Saham inputKodeSaham() {
-        while (true) {
-            String kodeSaham = InputUser.nextLine("Masukkan kode saham yang ingin Anda beli: ").toUpperCase();
-            Saham sahamTerpilih = cariSahamByKode(kodeSaham);
-            if (sahamTerpilih != null) {
-                return sahamTerpilih;
-            } else {
-                System.out.println("Kode saham tidak ditemukan. Silakan masukkan kode yang valid.\n");
-            }
-        }
     }
 
     // input jumlah lembar yang ingin dibeli
@@ -60,6 +47,16 @@ public class BeliSaham {
         }
     }
 
+    // proses pembelian saham berdasarkan kode dan jumlah lembar
+    private static void prosesPembelian(String kodeSaham, int jumlahLembar) {
+        Saham sahamTerpilih = cariSahamByKode(kodeSaham);
+        if (sahamTerpilih != null) {
+            tambahKePortofolio(sahamTerpilih, jumlahLembar);
+        } else {
+            System.out.println("Kode saham tidak ditemukan!\n");
+        }
+    }
+
     // mencari saham berdasarkan kode
     private static Saham cariSahamByKode(String kode) {
         for (Saham saham : daftarSaham) {
@@ -70,37 +67,16 @@ public class BeliSaham {
         return null;
     }
 
-    // Menambahkan saham yang dibeli ke portofolio
+    // menambahkan saham yang dibeli ke portofolio
     private static void tambahKePortofolio(Saham saham, int jumlahLembar) {
-        // Cari apakah saham tersebut sudah ada di portofolio
-        PortofolioSahamCustomer existingPortofolio = cariPortofolioSaham(saham.getKode());
-
-        if (existingPortofolio != null) {
-            // Jika sudah ada, tambahkan jumlah lembar saham yang dibeli
-            int totalLembar = existingPortofolio.getJumlahLembar() + jumlahLembar;
-            existingPortofolio.setJumlahLembar(totalLembar);
-            System.out.println("Jumlah lembar saham yang sudah ada diperbarui! Total lembar: " + totalLembar);
-        } else {
-            // Jika belum ada, tambahkan saham baru ke portofolio
-            PortofolioSahamCustomer newPortofolio = new PortofolioSahamCustomer(
-                    saham.getKode(),
-                    saham.getNamaPerusahaan(),
-                    jumlahLembar,
-                    saham.getHarga()
-            );
-            PortofolioLists.addPortofolioSaham(newPortofolio);
-            System.out.println("Pembelian saham baru berhasil! Data dapat dicek pada menu portofolio.");
-        }
-    }
-
-    // Mencari portofolio saham berdasarkan kode saham
-    private static PortofolioSahamCustomer cariPortofolioSaham(String kodeSaham) {
-        for (PortofolioSahamCustomer portofolio : PortofolioLists.getPortofolioSahamList()) {
-            if (portofolio.getSahamCodeCustomer().equals(kodeSaham)) {
-                return portofolio;
-            }
-        }
-        return null;
+        PortofolioSahamCustomer portofolio = new PortofolioSahamCustomer(
+                saham.getKode(),
+                saham.getNamaPerusahaan(),
+                jumlahLembar,
+                saham.getHarga()
+        );
+        PortofolioLists.addPortofolioSaham(portofolio);
+        System.out.println("Pembelian berhasil! Data dapat dicek pada menu portofolio.\n");
     }
 
     // tanya user ingin beli lagi atau kembali ke menu
