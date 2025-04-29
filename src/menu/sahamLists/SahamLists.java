@@ -2,7 +2,7 @@ package menu.sahamLists;
 
 import java.util.ArrayList;
 
-
+// Class untuk menampilkan list saham apa saja yang tersedia
 public class SahamLists {
     private static final ArrayList<Saham> sahamList = new ArrayList<>();
 
