@@ -1,5 +1,8 @@
 package menu.customer.portofolio;
 
+import menu.MenuHandler;
+import utility.InputUser;
+
 import java.util.ArrayList;
 
 // Kelas untuk menyimpan daftar portofolio saham dan SBN
@@ -61,6 +64,9 @@ public class PortofolioLists {
         if (isEmpty) {
             System.out.println("Anda belum memiliki portofolio. Silakan beli saham atau SBN terlebih dahulu.");
         }
+
+        InputUser.nextLine("\nTekan Enter untuk kembali ke menu...");
+        MenuHandler.displayCustomerMenu();
     }
 
     // Menampilkan daftar portofolio saham yang sudah ada (bila diperlukan)
