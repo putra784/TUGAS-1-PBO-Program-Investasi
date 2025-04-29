@@ -30,6 +30,8 @@ Selain itu, program ini juga dilengkapi dengan beberapa validasi, seperti:
 Berikut adalah deskripsi program, penjelasan apa yang terjadi pada program, beserta diagram UML dari program ini. Untuk deskripsi kode yang lebih lengkap dapat dilihat pada kode program yang sudah di commit oleh kami sebelumnya (sudah disertakan comment untuk membantu mengertikan jalan kerja setiap class atau method). Selamat menyimak.
 
 # UML
+![UML PBO TUGAS 1](https://github.com/user-attachments/assets/0563fccb-5114-4724-926e-c994b83639c6)
+
 
 
 # Bagaimana Program ini Dapat Berjalan?
@@ -159,4 +161,43 @@ Ketika customer ingin membeli saham yang sudah dimiliki, maka total saham terseb
 
 Kedua gambar diatas merupakan dua studi kasus mengenai proses pembelian saham, dimana ketika pengguna menginputkan kode saham yang tidak ada pada daftar saham atau salah menginputkan angka (0 atau huruf), maka program akan menampilkan suatu pesan dan meminta customer menginputkan ulang.
 
+## Menu Penjualan Saham
+![Screenshot 2025-04-29 172214](https://github.com/user-attachments/assets/4c24a646-5ef8-44a2-9f39-94e50b6cfb2e)
+![Screenshot 2025-04-29 172226](https://github.com/user-attachments/assets/d6b08fff-06ed-43b9-a2fc-3c329ffd78ca)
+![Screenshot 2025-04-29 172257](https://github.com/user-attachments/assets/60786099-4ce5-4fd8-8852-1b88f7f821d8)
 
+Setelah masuk ke menu penjualan saham, customer akan ditampilkan daftar saham yang ia miliki, lengkap dengan kode saham, nama perusahaan, jumlah lembar, total investasi, dan harga per-lembar saham. Setelah itu, customer diminta untuk menginputkan kode saham dan jumlah lembar yang ingin dijual. Lalu, ketika customer selesai memasukkan jumlah lembar, program akan menanyakan apakah customer tersebut ingin menjual saham itu lagi atau kembali ke menu awal customer.
+
+### Validasi Penjualan Saham
+![Screenshot 2025-04-29 173005](https://github.com/user-attachments/assets/92534357-eb22-48c4-bae0-9ee0c4eee8f8)
+![Screenshot 2025-04-29 173021](https://github.com/user-attachments/assets/4096b6aa-f419-4bee-830a-08d113143f12)
+![Screenshot 2025-04-29 173036](https://github.com/user-attachments/assets/b6c453f2-ca13-4bf4-9f3c-5744205774f8)
+
+Ketiga gambar diatas merupakan hasil screenshoot studi kasus pada menu penjualan saham, diantaranya :
+1. Ketika kode tidak ditemukan, maka program akan meminta mengulan input disaat pengguna menginputkan jumlah lembar yang ingin dijual.
+2. Ketika jumlah lembar yang diinputkan = 0, lebih, atau bukan angka, maka program akan meminta mengulang program.
+
+## Menu Pembelian SBN
+![Screenshot 2025-04-29 173610](https://github.com/user-attachments/assets/0d8da13e-c97b-43f9-8584-0da703307897)
+![Screenshot 2025-04-29 173625](https://github.com/user-attachments/assets/e1686f5b-2970-480d-97b2-f56f0f636a7a)
+![Screenshot 2025-04-29 173645](https://github.com/user-attachments/assets/6adb7031-6273-4421-9593-6e8070dca94c)
+
+Setelah masuk ke menu pembelian SBN, maka customer akan dapat melihat daftar SBN yang ada. Setelah itu, customer diminta untuk menginput kode SBN yang ingin dibeli dan juga nominal investasi dengan minimal beli Rp1.000.000,00. Pada bagian akhir, customer juga diminta ingin melanjutkan kembali atau kembali ke menu customer.
+
+### Validasi Pembelian SBN
+![Screenshot 2025-04-29 182751](https://github.com/user-attachments/assets/f4bb7721-344c-42e4-a78a-30cc2e572e84)
+![Screenshot 2025-04-29 182837](https://github.com/user-attachments/assets/744efe6f-535f-4dd2-a555-7e8480540744)
+
+Kedua gambar tersebut merupakan contoh studi kasus validasi input costumer. Terlihat bahwa ketika kode SBN tidak terdapat pada daftar SBN atau input pada nominal investasi tidak valid, maka program akan langsung menampilkan pesan tertentu dan langsung meminta customer untuk menginputkan ulang bagian tertentu.
+
+## Menu Simulasi SBN
+![Screenshot 2025-04-29 183218](https://github.com/user-attachments/assets/350e372d-f796-4a81-8129-64cf4384d7e3)
+![Screenshot 2025-04-29 183236](https://github.com/user-attachments/assets/6bd0dcb3-5f86-4475-99c0-166039f566d0)
+![Screenshot 2025-04-29 183303](https://github.com/user-attachments/assets/fa81c5f3-babc-4337-a8a9-bcd976c51606)
+
+Setelah masuk menu simulasi SBN, program akan langsung menampilkan daftar SBN yang dapat di simulasikan. Simulasi SBN ini berfungsi untuk menentukan estimasi kupon per-bulan dari suatu SBN. Awalnya, pengguna diminta untuk memasukkan kode SBN yang ingin di simulasikan, lalu nominal investasinya. Setelah itu, program akan langsung menampilkan estimasi kupon yang diterima per-bulan.
+
+### Validasi Simulasi SBN
+![Screenshot 2025-04-29 184813](https://github.com/user-attachments/assets/e128938b-1748-49ba-a5e0-ffe5399d18ae)
+![Screenshot 2025-04-29 184833](https://github.com/user-attachments/assets/53b4030a-c760-4e7d-942c-2a92bbe9880b)
+![Screenshot 2025-04-29 184852](https://github.com/user-attachments/assets/d4c38ce4-8eb5-448e-9cb1-724446b251b6)
