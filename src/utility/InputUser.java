@@ -2,6 +2,7 @@ package utility;
 
 import java.util.Scanner;
 
+// Class untuk memvalidasi input dari user
 public class InputUser {
     private static final Scanner scanner = new Scanner(System.in);
 
