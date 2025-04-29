@@ -29,6 +29,53 @@ Selain itu, program ini juga dilengkapi dengan beberapa validasi, seperti:
 
 Berikut adalah deskripsi program, penjelasan apa yang terjadi pada program, beserta diagram UML dari program ini. Untuk deskripsi kode yang lebih lengkap dapat dilihat pada kode program yang sudah di commit oleh kami sebelumnya (sudah disertakan comment untuk membantu mengertikan jalan kerja setiap class atau method). Selamat menyimak.
 
+# Struktur program
+
+```
+1. Main.java (menu utama)
+
+2. loginPage
+   2.1 AutentikasiUser.java
+   2.2 Opening.java
+   2.3 dataUser
+       2.3.1 HardCodeUser.java
+       2.3.2 Role.java (enum)
+       2.3.3 User.java
+
+3. menu
+   3.1 MenuHandler.java
+
+   3.2 admin
+       3.2.1 SahamAdminMenu.java
+       3.2.2 SbnAdminMenu.java
+       3.2.3 saham
+           3.2.3.1 TambahSaham.java
+           3.2.3.2 UbahHargaSaham.java
+       3.2.4 sbn
+           3.2.4.1 TambahSbn.java
+
+   3.3 customer
+       3.3.1 BeliSaham.java
+       3.3.2 BeliSbn.java
+       3.3.3 JualSaham.java
+       3.3.4 SimulasiSbn.java
+       3.3.5 portofolio
+           3.3.5.1 PortofolioLists.java
+           3.3.5.2 PortofolioSahamCustomer.java
+           3.3.5.3 PortofolioSbnCustomer.java
+
+   3.4 sahamLists
+       3.4.1 Saham.java
+       3.4.2 SahamLists.java
+
+   3.5 sbnLists
+       3.5.1 SBN.java
+       3.5.2 SbnLists.java
+
+4. utility
+   4.1 InputUser.java
+```
+
 # UML
 ![UML PBO TUGAS 1](https://github.com/user-attachments/assets/0563fccb-5114-4724-926e-c994b83639c6)
 
@@ -201,3 +248,13 @@ Setelah masuk menu simulasi SBN, program akan langsung menampilkan daftar SBN ya
 ![Screenshot 2025-04-29 184813](https://github.com/user-attachments/assets/e128938b-1748-49ba-a5e0-ffe5399d18ae)
 ![Screenshot 2025-04-29 184833](https://github.com/user-attachments/assets/53b4030a-c760-4e7d-942c-2a92bbe9880b)
 ![Screenshot 2025-04-29 184852](https://github.com/user-attachments/assets/d4c38ce4-8eb5-448e-9cb1-724446b251b6)
+
+Gambar diatas merupakan tiga contoh validasi yang dilakukan oleh program ketika melakukan simulasi SBN. Validasi yang dilakukan mirip dengan validaasi yang lain, dimana program akan meminta input ulang ketika customer melakukan kesalahan saat input.
+
+## Menu Portofolio
+![Screenshot 2025-04-29 214456](https://github.com/user-attachments/assets/8903a77b-d31c-4403-a8a7-c0681db3b332)
+![Screenshot 2025-04-29 214514](https://github.com/user-attachments/assets/38b917ec-6636-4b4f-ad0b-3f3883a6543a)
+
+Setelah masuk ke menu portofolio, program akan menampilkan seluruh data portofolio yang dimiliki oleh customer, diantaranya :
+1. Pada list portofolio saham customer, berisi kode saham, nama saham atau perusahaan, jumlah lembar yang dimiliki, Total investasi, dan harga per-lembar saat ini.
+2. Pada portofolio SBN customer, berisi kode SBN, jenis SBN, jumlah unit, total investasi, dan estimasi kupon per-bulan berdasarkan hasil simulasi yang telah dilakukan.
