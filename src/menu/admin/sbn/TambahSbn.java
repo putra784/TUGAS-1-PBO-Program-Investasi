@@ -18,7 +18,7 @@ public class TambahSbn {
             SBN sbnBaru = new SBN(kodeSbn, jenisSbn, hargaPerUnit, bunga, tenor);
             SbnLists.getDaftarSBN().add(sbnBaru);
 
-            System.out.println("SBN baru berhasil ditambahkan!\n");
+            System.out.println("\nSBN baru berhasil ditambahkan!\n");
             SbnLists.displayDaftarSBN();
 
             if (!validasiMenu()) {
@@ -29,13 +29,12 @@ public class TambahSbn {
 
     private static boolean validasiMenu() {
         while (true) {
-            System.out.println("Apa yang ingin dilakukan selanjutnya?");
+            System.out.println("\nApa yang ingin dilakukan selanjutnya?");
             System.out.println("1. Lanjut menambahkan SBN");
             System.out.println("2. Kembali ke menu SBN");
             String pilihan = InputUser.nextLine("Masukkan pilihan anda: ");
             if (pilihan.equals("1")) {
-                tambahSbn();
-                return true;
+                return true;  // biarkan loop di tambahSbn() lanjut
             } else if (pilihan.equals("2")) {
                 SbnAdminMenu.displaySbnAdminMenu();
                 return false;
@@ -47,18 +46,27 @@ public class TambahSbn {
 
     private static String inputKodeSbn() {
         while (true) {
-            String kode = InputUser.nextLine("Masukkan kode SBN (misal: ORI024): ");
-            if (!kode.trim().isEmpty()) {
-                return kode;
+            String kode = InputUser.nextLine("Masukkan kode SBN (misal: ORI024): ").trim().toUpperCase();
+            if (kode.isEmpty()) {
+                System.out.println("Kode SBN tidak boleh kosong.");
+                continue;
             }
-            System.out.println("Kode SBN tidak boleh kosong.");
+
+            boolean kodeSudahAda = SbnLists.getDaftarSBN().stream()
+                    .anyMatch(sbn -> sbn.getKodeSbn().equalsIgnoreCase(kode));
+            if (kodeSudahAda) {
+                System.out.println("Kode SBN sudah ada. Silakan masukkan kode lain.");
+                continue;
+            }
+
+            return kode;
         }
     }
 
     private static String inputJenisSbn() {
         while (true) {
-            String jenis = InputUser.nextLine("Masukkan jenis SBN: ");
-            if (!jenis.trim().isEmpty()) {
+            String jenis = InputUser.nextLine("Masukkan jenis SBN: ").trim();
+            if (!jenis.isEmpty()) {
                 return jenis;
             }
             System.out.println("Jenis SBN tidak boleh kosong.");
@@ -67,16 +75,16 @@ public class TambahSbn {
 
     private static double inputHargaPerUnit() {
         while (true) {
-            String input = InputUser.nextLine("Masukkan harga per unit SBN (Rp): ");
+            String input = InputUser.nextLine("Masukkan harga per unit SBN (minimal Rp1.000.000): ");
             try {
                 double harga = Double.parseDouble(input);
-                if (harga > 0) {
+                if (harga >= 1000000) {
                     return harga;
                 } else {
-                    System.out.println("Harga harus lebih dari 0.");
+                    System.out.println("Harga harus minimal Rp1.000.000.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Masukkan angka yang valid.");
+                System.out.println("Input tidak valid. Masukkan angka yang benar.");
             }
         }
     }
@@ -92,7 +100,7 @@ public class TambahSbn {
                     System.out.println("Bunga harus lebih dari 0.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Masukkan angka yang valid.");
+                System.out.println("Input tidak valid. Masukkan angka yang benar.");
             }
         }
     }
@@ -108,7 +116,7 @@ public class TambahSbn {
                     System.out.println("Tenor harus lebih dari 0.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Masukkan angka yang valid.");
+                System.out.println("Input tidak valid. Masukkan angka bulat positif.");
             }
         }
     }
