@@ -208,4 +208,4 @@ lalalalala
 astungkara
 bingung
 apa 
-
+kenapa
