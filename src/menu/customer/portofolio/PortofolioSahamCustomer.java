@@ -22,7 +22,7 @@ public class PortofolioSahamCustomer {
 
     public void displayPortofolio() {
         double total = jumlahLembar * hargaPerLembar;
-        NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("id-ID"));
         String totalFormatted = formatter.format(total);
 
         System.out.println("Kode Saham: " + kodeSahamCustomer);
