@@ -1,4 +1,4 @@
-![Screenshot 2025-04-29 151931](https://github.com/user-attachments/assets/9ff6deeb-d118-4471-b5c5-66e0cdda8c7f)# PBO-Project 1
+# PBO-Project 1
 
 # Identitas kami
 ```
