@@ -30,6 +30,8 @@ Selain itu, program ini juga dilengkapi dengan beberapa validasi, seperti:
 Berikut adalah deskripsi program, penjelasan apa yang terjadi pada program, beserta diagram UML dari program ini. Untuk deskripsi kode yang lebih lengkap dapat dilihat pada kode program yang sudah di commit oleh kami sebelumnya (sudah disertakan comment untuk membantu mengertikan jalan kerja setiap class atau method). Selamat menyimak.
 
 # UML
+![UML PBO TUGAS 1](https://github.com/user-attachments/assets/0563fccb-5114-4724-926e-c994b83639c6)
+
 
 
 # Bagaimana Program ini Dapat Berjalan?
