@@ -209,3 +209,4 @@ astungkara
 bingung
 apa 
 kenapa
+apa lagi ya
