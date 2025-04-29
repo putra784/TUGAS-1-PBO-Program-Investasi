@@ -258,3 +258,13 @@ Gambar diatas merupakan tiga contoh validasi yang dilakukan oleh program ketika 
 Setelah masuk ke menu portofolio, program akan menampilkan seluruh data portofolio yang dimiliki oleh customer, diantaranya :
 1. Pada list portofolio saham customer, berisi kode saham, nama saham atau perusahaan, jumlah lembar yang dimiliki, Total investasi, dan harga per-lembar saat ini.
 2. Pada portofolio SBN customer, berisi kode SBN, jenis SBN, jumlah unit, total investasi, dan estimasi kupon per-bulan berdasarkan hasil simulasi yang telah dilakukan.
+
+# Logout Customer
+![Screenshot 2025-04-29 221943](https://github.com/user-attachments/assets/0f67e055-0063-49d5-aa6b-985aef1d8357)
+
+Gambar tersebut menunjukan customer ketika memilih opsi logout.
+
+# Logout Admin
+![Screenshot 2025-04-29 222239](https://github.com/user-attachments/assets/d11b151f-618e-4204-9078-1a03b9e17235)
+
+Gambar tersebut menunjukkan admin ketika sudah logout.
